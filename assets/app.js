@@ -14,6 +14,7 @@ const fullscreen=document.getElementById('lightbox');
 const fullImage=document.getElementById('fullImage');
 let current=0;
 let busy=false;
+let lastImageSwipe=0;
 function initSlide(slide){
   const images=JSON.parse(slide.dataset.images||'[]');
   slide._images=images;
@@ -40,10 +41,32 @@ function initSlide(slide){
   slide.querySelector('[data-img-prev]')?.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();renderImage(slide._imageIndex-1)});
   slide.querySelector('[data-img-next]')?.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();renderImage(slide._imageIndex+1)});
   thumbs.forEach((t,idx)=>t.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();renderImage(idx)}));
-  img.addEventListener('click',()=>{if(zoom){fullImage.src=zoom.dataset.zoom;fullImage.alt=zoom.dataset.alt||'';fullscreen.classList.add('open');document.body.style.overflow='hidden';}});
+  img.addEventListener('click',()=>{if(Date.now()-lastImageSwipe<420)return;if(zoom){fullImage.src=zoom.dataset.zoom;fullImage.alt=zoom.dataset.alt||'';fullscreen.classList.add('open');document.body.style.overflow='hidden';}});
   zoom?.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();fullImage.src=zoom.dataset.zoom;fullImage.alt=zoom.dataset.alt||'';fullscreen.classList.add('open');document.body.style.overflow='hidden';});
 }
 slides.forEach(initSlide);
+// Deslizar a izquierda/derecha cambia la imagen de la patología activa,
+// sin desplazar el card ni alterar la información histopatológica.
+let touchStart=null;
+deck.addEventListener('touchstart',e=>{
+ if(e.touches.length!==1){touchStart=null;return}
+ // La tira de miniaturas tiene desplazamiento propio.
+ if(e.target.closest('.thumbstrip,button,select,a')){touchStart=null;return}
+ const slide=e.target.closest('.slide');
+ if(!slide){touchStart=null;return}
+ touchStart={x:e.touches[0].clientX,y:e.touches[0].clientY,slide};
+},{passive:true});
+deck.addEventListener('touchend',e=>{
+ if(!touchStart||!e.changedTouches.length)return;
+ const start=touchStart;touchStart=null;
+ const dx=e.changedTouches[0].clientX-start.x;
+ const dy=e.changedTouches[0].clientY-start.y;
+ if(Math.abs(dx)<42||Math.abs(dx)<Math.abs(dy)*1.35)return;
+ if(!start.slide._images||start.slide._images.length<2)return;
+ lastImageSwipe=Date.now();
+ start.slide._renderImage(start.slide._imageIndex+(dx<0?1:-1));
+},{passive:true});
+deck.addEventListener('touchcancel',()=>{touchStart=null},{passive:true});
 const go=(n,smooth=true)=>{
   n=(n+slides.length)%slides.length;
   current=n;busy=true;
@@ -54,7 +77,7 @@ const go=(n,smooth=true)=>{
 };
 function sync(n){
   const s=slides[n];
-  counter.textContent=String(n+1).padStart(2,'0')+' / '+slides.length;
+  counter.textContent=String(n+1).padStart(2,'0')+' / '+String(slides.length).padStart(2,'0');
   pagerCounter.textContent=(n+1)+' / '+slides.length;
   caseSelect.value=s.dataset.case;
   history.replaceState(null,'','#'+s.id);
@@ -75,8 +98,8 @@ document.addEventListener('keydown',e=>{
  if(fullscreen.classList.contains('open')){if(e.key==='Escape')close();return}
  if(e.target.closest('input,select,textarea'))return;
  const slide=slides[current];
- if(e.key==='ArrowRight'){if(slide._images.length>1){slide._renderImage(slide._imageIndex+1)}else{go(current+1)}}
- if(e.key==='ArrowLeft'){if(slide._images.length>1){slide._renderImage(slide._imageIndex-1)}else{go(current-1)}}
+ if(e.key==='ArrowRight'&&slide._images.length>1)slide._renderImage(slide._imageIndex+1)
+ if(e.key==='ArrowLeft'&&slide._images.length>1)slide._renderImage(slide._imageIndex-1)
 });
 window.addEventListener('hashchange',()=>{const n=slides.findIndex(s=>'#'+s.id===location.hash);if(n>=0&&n!==current)go(n,false)});
 let initial=slides.findIndex(s=>'#'+s.id===location.hash); if(initial<0)initial=0; requestAnimationFrame(()=>go(initial,false));
