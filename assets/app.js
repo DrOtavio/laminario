@@ -1,4 +1,3 @@
-
 (()=>{
 'use strict';
 const deck=document.getElementById('deck');
@@ -15,6 +14,36 @@ const fullscreen=document.getElementById('lightbox');
 const fullImage=document.getElementById('fullImage');
 let current=0;
 let busy=false;
+function initSlide(slide){
+  const images=JSON.parse(slide.dataset.images||'[]');
+  slide._images=images;
+  slide._imageIndex=0;
+  const img=slide.querySelector('.case-image');
+  const count=slide.querySelector('.img-count');
+  const status=slide.querySelector('.img-status');
+  const thumbs=[...slide.querySelectorAll('[data-thumb-index]')];
+  const zoom=slide.querySelector('.zoom-btn');
+  function renderImage(i){
+    if(!images.length)return;
+    i=(i+images.length)%images.length;
+    slide._imageIndex=i;
+    img.src=images[i];
+    img.alt=`Microfotografía ${i+1}: ${slide.dataset.diagnosis||''}`;
+    count.textContent=`IMAGEN ${i+1}/${images.length}`;
+    status.textContent=`${i+1} / ${images.length}`;
+    thumbs.forEach((t,idx)=>t.classList.toggle('active',idx===i));
+    if(zoom) zoom.dataset.zoom=images[i];
+    if(zoom) zoom.dataset.alt=slide.dataset.diagnosis||'';
+  }
+  slide._renderImage=renderImage;
+  renderImage(0);
+  slide.querySelector('[data-img-prev]')?.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();renderImage(slide._imageIndex-1)});
+  slide.querySelector('[data-img-next]')?.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();renderImage(slide._imageIndex+1)});
+  thumbs.forEach((t,idx)=>t.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();renderImage(idx)}));
+  img.addEventListener('click',()=>{if(zoom){fullImage.src=zoom.dataset.zoom;fullImage.alt=zoom.dataset.alt||'';fullscreen.classList.add('open');document.body.style.overflow='hidden';}});
+  zoom?.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();fullImage.src=zoom.dataset.zoom;fullImage.alt=zoom.dataset.alt||'';fullscreen.classList.add('open');document.body.style.overflow='hidden';});
+}
+slides.forEach(initSlide);
 const go=(n,smooth=true)=>{
   n=(n+slides.length)%slides.length;
   current=n;busy=true;
@@ -36,34 +65,19 @@ function detect(){
   if(n>=0&&n<slides.length&&n!==current){current=n;sync(n)}
 }
 let frame=0;
-deck.addEventListener('scroll',()=>{
-  cancelAnimationFrame(frame);frame=requestAnimationFrame(detect);
-},{passive:true});
-for(const btn of [miniPrev,pagerPrev])btn.addEventListener('click',()=>go(current-1));
-for(const btn of [miniNext,pagerNext])btn.addEventListener('click',()=>go(current+1));
-caseSelect.addEventListener('change',()=>{
-  const n=slides.findIndex(s=>s.dataset.case===caseSelect.value);
-  if(n>=0)go(n,false);
-});
-deck.addEventListener('click',e=>{
- const t=e.target.closest('[data-goto]');
- if(t){e.preventDefault();go(+t.dataset.goto);return}
- const zoom=e.target.closest('[data-zoom]');
- if(zoom){fullImage.src=zoom.dataset.zoom;fullImage.alt=zoom.dataset.alt||'';fullscreen.classList.add('open');document.body.style.overflow='hidden'}
-});
+deck.addEventListener('scroll',()=>{cancelAnimationFrame(frame);frame=requestAnimationFrame(detect)},{passive:true});
+for(const btn of [miniPrev,pagerPrev]) btn?.addEventListener('click',()=>go(current-1));
+for(const btn of [miniNext,pagerNext]) btn?.addEventListener('click',()=>go(current+1));
+caseSelect?.addEventListener('change',()=>{const n=slides.findIndex(s=>s.dataset.case===caseSelect.value); if(n>=0)go(n,false);});
 const close=()=>{fullscreen.classList.remove('open');document.body.style.overflow='';fullImage.removeAttribute('src')};
-fullscreen.addEventListener('click',e=>{if(e.target===fullscreen||e.target.closest('.lightbox-close'))close()});
+fullscreen?.addEventListener('click',e=>{if(e.target===fullscreen||e.target.closest('.lightbox-close'))close()});
 document.addEventListener('keydown',e=>{
  if(fullscreen.classList.contains('open')){if(e.key==='Escape')close();return}
  if(e.target.closest('input,select,textarea'))return;
- if(e.key==='ArrowRight')go(current+1);
- if(e.key==='ArrowLeft')go(current-1);
+ const slide=slides[current];
+ if(e.key==='ArrowRight'){if(slide._images.length>1){slide._renderImage(slide._imageIndex+1)}else{go(current+1)}}
+ if(e.key==='ArrowLeft'){if(slide._images.length>1){slide._renderImage(slide._imageIndex-1)}else{go(current-1)}}
 });
-window.addEventListener('hashchange',()=>{
- const n=slides.findIndex(s=>'#'+s.id===location.hash);
- if(n>=0&&n!==current)go(n,false);
-});
-let initial=slides.findIndex(s=>'#'+s.id===location.hash);
-if(initial<0)initial=0;
-requestAnimationFrame(()=>go(initial,false));
+window.addEventListener('hashchange',()=>{const n=slides.findIndex(s=>'#'+s.id===location.hash);if(n>=0&&n!==current)go(n,false)});
+let initial=slides.findIndex(s=>'#'+s.id===location.hash); if(initial<0)initial=0; requestAnimationFrame(()=>go(initial,false));
 })();
