@@ -2,7 +2,7 @@
 
 <html lang="es"><head><title>Laminário 6F — Final</title><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/>
 <meta content="#080d1f" name="theme-color"/><meta content="yes" name="apple-mobile-web-app-capable"/><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/><meta content="Laminário 6F" name="apple-mobile-web-app-title"/>
-<link href="./assets/icons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/><link href="./assets/icons/apple-touch-icon-152.png" rel="apple-touch-icon" sizes="152x152"/><link href="./assets/icons/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/><link href="./manifest.webmanifest" rel="manifest"/><link href="./assets/style.css?v=20261104-final" rel="stylesheet"/><style>
+<link href="./assets/icons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/><link href="./assets/icons/apple-touch-icon-152.png" rel="apple-touch-icon" sizes="152x152"/><link href="./assets/icons/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/><link href="./manifest.webmanifest" rel="manifest"/><link href="./assets/style.css?v=20261111-final5" rel="stylesheet"/><style>
 /* Examen Final: omite la pintura de las patologías inactivas. */
 .slide.p2-inactive { visibility: hidden; }
 /* La galería usa la miniatura original, sin modificar el archivo en el servidor. */
@@ -17,13 +17,10 @@
   pointer-events:none; white-space:nowrap;
 }
 
-/* Final: miniaturas en una sola línea con desplazamiento horizontal. */
-#deck .thumbstrip { display: flex !important; flex-wrap: nowrap !important; overflow-x: auto !important; overflow-y: hidden !important; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; }
-#deck .thumbstrip > .thumb { flex: 0 0 auto !important; }
-</style></head><body><div class="shell"><header class="topbar"><a aria-label="Laminário 6F - inicio" class="wordmark" href="./index.html"><img alt="" src="./assets/icons/icon-192.png"/><span><strong>LAMINÁRIO <em>6F</em></strong><span class="sub">Anatomía patológica</span></span></a><span class="micro-tag">6F · MEDICINA</span></header><div class="p2bar"><a class="back" href="./index.html">← Inicio</a><h1 class="slide-title">EXAMEN FINAL</h1><span class="counter" id="counter">01 / 02</span></div>
-<div class="toolbar"><select aria-label="Elegir patología" class="case-select" id="caseSelect"><option value="pielonefritis_cronica">F01 · Pielonefritis crónica</option><option value="nefroblastoma">F02 · Nefroblastoma (tumor de Wilms)</option></select><div class="nav-mini"><button aria-label="Patología anterior" id="prevMini" type="button">←</button><button aria-label="Patología siguiente" id="nextMini" type="button">→</button></div></div>
+</style></head><body><div class="shell"><header class="topbar"><a aria-label="Laminário 6F - inicio" class="wordmark" href="./index.html"><img alt="" src="./assets/icons/icon-192.png"/><span><strong>LAMINÁRIO <em>6F</em></strong><span class="sub">Anatomía patológica</span></span></a><span class="micro-tag">6F · MEDICINA</span></header><div class="p2bar"><a class="back" href="./index.html">← Inicio</a><h1 class="slide-title">EXAMEN FINAL</h1><span class="counter" id="counter">01 / 05</span></div>
+<div class="toolbar"><select aria-label="Elegir patología" class="case-select" id="caseSelect"><option value="pielonefritis_cronica">F01 · Pielonefritis crónica</option><option value="nefroblastoma">F02 · Nefroblastoma (tumor de Wilms)</option><option value="bocio_coloide_multinodular">F03 · Bocio coloide multinodular</option><option value="tiroiditis_de_hashimoto">F04 · Tiroiditis de Hashimoto</option><option value="carcinoma_papilar_de_tiroides">F05 · Carcinoma papilar de tiroides</option></select><div class="nav-mini"><button aria-label="Patología anterior" id="prevMini" type="button">←</button><button aria-label="Patología siguiente" id="nextMini" type="button">→</button></div></div>
 <main aria-label="Patologías del examen final" class="deck" id="deck"><article class="slide" data-case="pielonefritis_cronica" data-diagnosis="Pielonefritis crónica" data-images='["./assets/laminas_final/f01_1.webp", "./assets/laminas_final/f01_2.webp", "./assets/laminas_final/f01_3.webp", "./assets/laminas_final/f01_4.webp", "./assets/laminas_final/f01_5.webp", "./assets/laminas_final/f01_6.webp"]' id="case-f01">
-<div class="panel photo-panel"><div class="photo-top"><strong>Lámina F01 · <span class="img-count">IMAGEN 1/6</span></strong><span>PATOLOGÍA 01 / 02</span></div>
+<div class="panel photo-panel"><div class="photo-top"><strong>Lámina F01 · <span class="img-count">IMAGEN 1/6</span></strong><span>PATOLOGÍA 01 / 05</span></div>
 <div class="photo-shell"><img alt="Microfotografía 1: Pielonefritis crónica" class="case-image" data-src="./assets/laminas_final/f01_1.webp" decoding="async" loading="eager"/><button aria-label="Ampliar microfotografía" class="zoom-btn" type="button">⤢</button></div>
 <div class="image-controls"><button aria-label="Imagen anterior" class="img-nav" data-img-prev="" type="button">←</button><div class="img-status">1 / 6</div><button aria-label="Imagen siguiente" class="img-nav" data-img-next="" type="button">→</button></div>
 <nav aria-label="Imágenes de la patología" class="thumbstrip"><button aria-label="Imagen 1" class="thumb active" data-thumb-index="0" type="button"><img alt="" data-src="./assets/laminas_final/thumbs/f01_1.webp" decoding="async" loading="lazy"/></button><button aria-label="Imagen 2" class="thumb" data-thumb-index="1" type="button"><img alt="" data-src="./assets/laminas_final/thumbs/f01_2.webp" decoding="async" loading="lazy"/></button><button aria-label="Imagen 3" class="thumb" data-thumb-index="2" type="button"><img alt="" data-src="./assets/laminas_final/thumbs/f01_3.webp" decoding="async" loading="lazy"/></button><button aria-label="Imagen 4" class="thumb" data-thumb-index="3" type="button"><img alt="" data-src="./assets/laminas_final/thumbs/f01_4.webp" decoding="async" loading="lazy"/></button><button aria-label="Imagen 5" class="thumb" data-thumb-index="4" type="button"><img alt="" data-src="./assets/laminas_final/thumbs/f01_5.webp" decoding="async" loading="lazy"/></button><button aria-label="Imagen 6" class="thumb" data-thumb-index="5" type="button"><img alt="" data-src="./assets/laminas_final/thumbs/f01_6.webp" decoding="async" loading="lazy"/></button></nav></div>
@@ -32,7 +29,7 @@
 <section class="field"><h3>Proceso</h3><p>Inflamación crónica</p></section>
 <section class="field"><h3>Descripción</h3><ul><li>Glomérulos esclerosados</li><li>Fibrosis periglomerular e intersticial</li><li>Atrofia tubular</li><li>Tiroidización</li><li>Infiltrado linfocitario</li><li>Hemorragia</li><li>Angiogénesis</li></ul></section>
 <section class="field diagnosis"><h3>Diagnóstico</h3><p>Pielonefritis crónica</p></section></div></article><article class="slide" data-case="nefroblastoma" data-diagnosis="Nefroblastoma (tumor de Wilms)" data-images='["./assets/laminas_final/f02_1.webp", "./assets/laminas_final/f02_2.webp", "./assets/laminas_final/f02_3.webp", "./assets/laminas_final/f02_4.webp", "./assets/laminas_final/f02_5.webp", "./assets/laminas_final/f02_6.webp", "./assets/laminas_final/f02_7.webp"]' id="case-f02">
-<div class="panel photo-panel"><div class="photo-top"><strong>Lámina F02 · <span class="img-count">IMAGEN 1/7</span></strong><span>PATOLOGÍA 02 / 02</span></div>
+<div class="panel photo-panel"><div class="photo-top"><strong>Lámina F02 · <span class="img-count">IMAGEN 1/7</span></strong><span>PATOLOGÍA 02 / 05</span></div>
 <div class="photo-shell"><img alt="Microfotografía 1: Nefroblastoma (tumor de Wilms)" class="case-image" data-src="./assets/laminas_final/f02_1.webp" decoding="async" loading="eager"/><button aria-label="Ampliar microfotografía" class="zoom-btn" type="button">⤢</button></div>
 <div class="image-controls"><button aria-label="Imagen anterior" class="img-nav" data-img-prev="" type="button">←</button><div class="img-status">1 / 7</div><button aria-label="Imagen siguiente" class="img-nav" data-img-next="" type="button">→</button></div>
 <nav aria-label="Imágenes de la patología" class="thumbstrip"><button aria-label="Imagen 1" class="thumb active" data-thumb-index="0" type="button"><img alt="" data-src="./assets/laminas_final/thumbs/f02_1.webp" decoding="async" loading="lazy"/></button><button aria-label="Imagen 2" class="thumb" data-thumb-index="1" type="button"><img alt="" data-src="./assets/laminas_final/thumbs/f02_2.webp" decoding="async" loading="lazy"/></button><button aria-label="Imagen 3" class="thumb" data-thumb-index="2" type="button"><img alt="" data-src="./assets/laminas_final/thumbs/f02_3.webp" decoding="async" loading="lazy"/></button><button aria-label="Imagen 4" class="thumb" data-thumb-index="3" type="button"><img alt="" data-src="./assets/laminas_final/thumbs/f02_4.webp" decoding="async" loading="lazy"/></button><button aria-label="Imagen 5" class="thumb" data-thumb-index="4" type="button"><img alt="" data-src="./assets/laminas_final/thumbs/f02_5.webp" decoding="async" loading="lazy"/></button><button aria-label="Imagen 6" class="thumb" data-thumb-index="5" type="button"><img alt="" data-src="./assets/laminas_final/thumbs/f02_6.webp" decoding="async" loading="lazy"/></button><button aria-label="Imagen 7" class="thumb" data-thumb-index="6" type="button"><img alt="" data-src="./assets/laminas_final/thumbs/f02_7.webp" decoding="async" loading="lazy"/></button></nav></div>
@@ -40,8 +37,77 @@
 <section class="field"><h3>Órgano</h3><p>Riñón</p></section>
 <section class="field"><h3>Proceso</h3><p>Neoplasia maligna</p></section>
 <section class="field"><h3>Descripción</h3><ul><li>Proliferación neoplásica maligna</li><li>Compuesta por tres componentes: blastematoso, epitelial y mesenquimatoso</li></ul></section>
-<section class="field diagnosis"><h3>Diagnóstico</h3><p>Nefroblastoma (tumor de Wilms)</p></section></div></article></main>
-<div class="bottom-pager"><button id="pagerPrev" type="button">← Patología anterior</button><span class="progress" id="pagerCounter">1 / 2</span><button id="pagerNext" type="button">Patología siguiente →</button></div>
+<section class="field diagnosis"><h3>Diagnóstico</h3><p>Nefroblastoma (tumor de Wilms)</p></section></div></article>
+<article class="slide" data-case="bocio_coloide_multinodular" data-diagnosis="Bocio coloide multinodular" data-images="[&quot;./assets/laminas_final/f03_1.webp&quot;, &quot;./assets/laminas_final/f03_2.webp&quot;, &quot;./assets/laminas_final/f03_3.webp&quot;, &quot;./assets/laminas_final/f03_4.webp&quot;, &quot;./assets/laminas_final/f03_5.webp&quot;]" id="case-f03">
+<div class="panel photo-panel"><div class="photo-top"><strong>Lámina F03 · <span class="img-count">IMAGEN 1/5</span></strong><span>PATOLOGÍA 03 / 05</span></div>
+<div class="photo-shell"><img alt="Microfotografía 1: Bocio coloide multinodular" class="case-image" data-src="./assets/laminas_final/f03_1.webp" decoding="async" loading="lazy"/><button aria-label="Ampliar microfotografía" class="zoom-btn" type="button">⤢</button></div>
+<div class="image-controls"><button aria-label="Imagen anterior" class="img-nav" data-img-prev="" type="button">←</button><div class="img-status">1 / 5</div><button aria-label="Imagen siguiente" class="img-nav" data-img-next="" type="button">→</button></div>
+<nav aria-label="Imágenes de la patología" class="thumbstrip">
+<button aria-label="Imagen 1" class="thumb active" data-thumb-index="0" type="button"><img alt="" data-src="./assets/laminas_final/thumbs/f03_1.webp" decoding="async" loading="lazy"/></button>
+<button aria-label="Imagen 2" class="thumb" data-thumb-index="1" type="button"><img alt="" data-src="./assets/laminas_final/thumbs/f03_2.webp" decoding="async" loading="lazy"/></button>
+<button aria-label="Imagen 3" class="thumb" data-thumb-index="2" type="button"><img alt="" data-src="./assets/laminas_final/thumbs/f03_3.webp" decoding="async" loading="lazy"/></button>
+<button aria-label="Imagen 4" class="thumb" data-thumb-index="3" type="button"><img alt="" data-src="./assets/laminas_final/thumbs/f03_4.webp" decoding="async" loading="lazy"/></button>
+<button aria-label="Imagen 5" class="thumb" data-thumb-index="4" type="button"><img alt="" data-src="./assets/laminas_final/thumbs/f03_5.webp" decoding="async" loading="lazy"/></button>
+</nav></div>
+<div class="panel data-panel"><div class="case-tag">PATOLOGÍA F03 · Lámina F03</div>
+<section class="field"><h3>Órgano</h3><p>Glándula tiroides</p></section>
+<section class="field"><h3>Proceso</h3><p>Hiperplasia (adaptación)</p></section>
+<section class="field"><h3>Descripción</h3><ul>
+<li>Folículos tiroideos de tamaños variables</li>
+<li>Epitelio folicular aplanado en algunos sectores</li>
+<li>Folículos hiperplásicos en otros sectores</li>
+<li>Hemorragia</li>
+</ul></section>
+<section class="field diagnosis"><h3>Diagnóstico</h3><p>Bocio coloide multinodular</p></section></div></article>
+<article class="slide" data-case="tiroiditis_de_hashimoto" data-diagnosis="Tiroiditis de Hashimoto" data-images="[&quot;./assets/laminas_final/f04_1.webp&quot;, &quot;./assets/laminas_final/f04_2.webp&quot;, &quot;./assets/laminas_final/f04_3.webp&quot;, &quot;./assets/laminas_final/f04_4.webp&quot;, &quot;./assets/laminas_final/f04_5.webp&quot;, &quot;./assets/laminas_final/f04_6.webp&quot;]" id="case-f04">
+<div class="panel photo-panel"><div class="photo-top"><strong>Lámina F04 · <span class="img-count">IMAGEN 1/6</span></strong><span>PATOLOGÍA 04 / 05</span></div>
+<div class="photo-shell"><img alt="Microfotografía 1: Tiroiditis de Hashimoto" class="case-image" data-src="./assets/laminas_final/f04_1.webp" decoding="async" loading="lazy"/><button aria-label="Ampliar microfotografía" class="zoom-btn" type="button">⤢</button></div>
+<div class="image-controls"><button aria-label="Imagen anterior" class="img-nav" data-img-prev="" type="button">←</button><div class="img-status">1 / 6</div><button aria-label="Imagen siguiente" class="img-nav" data-img-next="" type="button">→</button></div>
+<nav aria-label="Imágenes de la patología" class="thumbstrip">
+<button aria-label="Imagen 1" class="thumb active" data-thumb-index="0" type="button"><img alt="" data-src="./assets/laminas_final/thumbs/f04_1.webp" decoding="async" loading="lazy"/></button>
+<button aria-label="Imagen 2" class="thumb" data-thumb-index="1" type="button"><img alt="" data-src="./assets/laminas_final/thumbs/f04_2.webp" decoding="async" loading="lazy"/></button>
+<button aria-label="Imagen 3" class="thumb" data-thumb-index="2" type="button"><img alt="" data-src="./assets/laminas_final/thumbs/f04_3.webp" decoding="async" loading="lazy"/></button>
+<button aria-label="Imagen 4" class="thumb" data-thumb-index="3" type="button"><img alt="" data-src="./assets/laminas_final/thumbs/f04_4.webp" decoding="async" loading="lazy"/></button>
+<button aria-label="Imagen 5" class="thumb" data-thumb-index="4" type="button"><img alt="" data-src="./assets/laminas_final/thumbs/f04_5.webp" decoding="async" loading="lazy"/></button>
+<button aria-label="Imagen 6" class="thumb" data-thumb-index="5" type="button"><img alt="" data-src="./assets/laminas_final/thumbs/f04_6.webp" decoding="async" loading="lazy"/></button>
+</nav></div>
+<div class="panel data-panel"><div class="case-tag">PATOLOGÍA F04 · Lámina F04</div>
+<section class="field"><h3>Órgano</h3><p>Glándula tiroides</p></section>
+<section class="field"><h3>Proceso</h3><p>Inflamación crónica</p></section>
+<section class="field"><h3>Descripción</h3><ul>
+<li>Folículos tiroideos atrofiados</li>
+<li>Fibrosis</li>
+<li>Nódulos linfoides con centros germinales</li>
+<li>Angiogénesis</li>
+<li>Presencia de células de Hürthle</li>
+</ul></section>
+<section class="field diagnosis"><h3>Diagnóstico</h3><p>Tiroiditis de Hashimoto</p></section></div></article>
+<article class="slide" data-case="carcinoma_papilar_de_tiroides" data-diagnosis="Carcinoma papilar de tiroides" data-images="[&quot;./assets/laminas_final/f05_1.webp&quot;, &quot;./assets/laminas_final/f05_2.webp&quot;, &quot;./assets/laminas_final/f05_3.webp&quot;, &quot;./assets/laminas_final/f05_4.webp&quot;, &quot;./assets/laminas_final/f05_5.webp&quot;, &quot;./assets/laminas_final/f05_6.webp&quot;, &quot;./assets/laminas_final/f05_7.webp&quot;]" id="case-f05">
+<div class="panel photo-panel"><div class="photo-top"><strong>Lámina F05 · <span class="img-count">IMAGEN 1/7</span></strong><span>PATOLOGÍA 05 / 05</span></div>
+<div class="photo-shell"><img alt="Microfotografía 1: Carcinoma papilar de tiroides" class="case-image" data-src="./assets/laminas_final/f05_1.webp" decoding="async" loading="lazy"/><button aria-label="Ampliar microfotografía" class="zoom-btn" type="button">⤢</button></div>
+<div class="image-controls"><button aria-label="Imagen anterior" class="img-nav" data-img-prev="" type="button">←</button><div class="img-status">1 / 7</div><button aria-label="Imagen siguiente" class="img-nav" data-img-next="" type="button">→</button></div>
+<nav aria-label="Imágenes de la patología" class="thumbstrip">
+<button aria-label="Imagen 1" class="thumb active" data-thumb-index="0" type="button"><img alt="" data-src="./assets/laminas_final/thumbs/f05_1.webp" decoding="async" loading="lazy"/></button>
+<button aria-label="Imagen 2" class="thumb" data-thumb-index="1" type="button"><img alt="" data-src="./assets/laminas_final/thumbs/f05_2.webp" decoding="async" loading="lazy"/></button>
+<button aria-label="Imagen 3" class="thumb" data-thumb-index="2" type="button"><img alt="" data-src="./assets/laminas_final/thumbs/f05_3.webp" decoding="async" loading="lazy"/></button>
+<button aria-label="Imagen 4" class="thumb" data-thumb-index="3" type="button"><img alt="" data-src="./assets/laminas_final/thumbs/f05_4.webp" decoding="async" loading="lazy"/></button>
+<button aria-label="Imagen 5" class="thumb" data-thumb-index="4" type="button"><img alt="" data-src="./assets/laminas_final/thumbs/f05_5.webp" decoding="async" loading="lazy"/></button>
+<button aria-label="Imagen 6" class="thumb" data-thumb-index="5" type="button"><img alt="" data-src="./assets/laminas_final/thumbs/f05_6.webp" decoding="async" loading="lazy"/></button>
+<button aria-label="Imagen 7" class="thumb" data-thumb-index="6" type="button"><img alt="" data-src="./assets/laminas_final/thumbs/f05_7.webp" decoding="async" loading="lazy"/></button>
+</nav></div>
+<div class="panel data-panel"><div class="case-tag">PATOLOGÍA F05 · Lámina F05</div>
+<section class="field"><h3>Órgano</h3><p>Glándula tiroides</p></section>
+<section class="field"><h3>Proceso</h3><p>Neoplasia maligna</p></section>
+<section class="field"><h3>Descripción</h3><ul>
+<li>Núcleos con patrón de vidrio esmerilado</li>
+<li>Plegamiento sobre su propio eje celular</li>
+<li>Aspecto de grano de café</li>
+<li>Irregularidad morfológica en hendidura (hendiduras nucleares)</li>
+<li>Presencia de calcificaciones en forma de cuerpos de psamoma</li>
+</ul></section>
+<section class="field diagnosis"><h3>Diagnóstico</h3><p>Carcinoma papilar de tiroides</p></section></div></article>
+</main>
+<div class="bottom-pager"><button id="pagerPrev" type="button">← Patología anterior</button><span class="progress" id="pagerCounter">1 / 5</span><button id="pagerNext" type="button">Patología siguiente →</button></div>
 </div><div aria-hidden="true" class="lightbox" id="lightbox"><button aria-label="Cerrar" class="lightbox-close" type="button">×</button><img alt="" id="fullImage"/></div><script>(()=>{
 'use strict';
 const deck = document.getElementById('deck');

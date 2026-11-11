@@ -1,18 +1,20 @@
-# Laminário 6F
+# Laminário 6F — Anatomía Patológica
 
-Site estático do atlas de Anatomía Patológica da turma 6F.
+Projeto estático para GitHub Pages ou Cloudflare Pages.
 
-## GitHub Pages
+## Publicação
 
-Envie os arquivos e pastas deste diretório para a **raiz** do repositório. Em **Settings → Pages**, use **Deploy from a branch**, `main`, pasta `/ (root)`.
+Extraia o ZIP. Faça upload do **conteúdo** da pasta `laminario-main/` para a raiz do repositório, incluindo `index.html`, `p1.html`, `p2.html`, `final.html` e a pasta `assets/`.
 
-Abrir `index.html` na URL do GitHub Pages.
+## Seções
 
-- `index.html`: seleção P1/P2
-- `p1.html`: página P1 (aguardando lâminas)
-- `p2.html`: 9 casos e 28 microfotografias
-- `assets/laminas/`: microfotografias suavizadas e padronizadas
-- `assets/icons/`: ícone instalado no iPhone
-- `manifest.webmanifest`: configuração da tela inicial
+- **P1**: 7 patologias, 24 microfotografias.
+- **P2**: 9 patologias, 41 microfotografias.
+- **Final**: 5 patologias, 31 microfotografias.
+  - F01: Pielonefritis crónica (6 imagens)
+  - F02: Nefroblastoma (7 imagens)
+  - F03: Bocio coloide multinodular (5 imagens; PNG 1–5)
+  - F04: Tiroiditis de Hashimoto (6 imagens; PNG 6–11)
+  - F05: Carcinoma papilar de tiroides (7 imagens; PNG 12–18)
 
-Para instalar no iPhone: abra o endereço HTTPS no **Safari** → Compartilhar → Adicionar à Tela de Início. O atalho utiliza o ícone do Laminário 6F.
+As novas microfotografias foram convertidas para WebP 2000 × 2000 px preservando a transparência. As miniaturas também são WebP, em 256 × 256 px. A aba Final utiliza as mesmas dimensões de miniaturas definidas no CSS da P1/P2, inclusive no celular.
